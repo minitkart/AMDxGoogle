@@ -1,0 +1,6 @@
+{
+  "name": "NutriMind",
+  "description": "An AI-powered futuristic smart nutrition assistant that provides real-time meal analysis, healthy swaps, and personalized habit-building insights.",
+  "requestFramePermissions": ["camera"],
+  "majorCapabilities": []
+}

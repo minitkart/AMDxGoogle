@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Orbitron", sans-serif;
+  
+  --color-primary-neon: #00ff88;
+  --color-secondary-neon: #00bfff;
+  --color-warning-neon: #ff6b35;
+  --color-danger-neon: #ff4757;
+  --color-bg-dark: #020409;
+
+  @keyframes scan-line {
+    0% { top: 0; }
+    50% { top: 100%; }
+    100% { top: 0; }
+  }
+  --animate-scan-line: scan-line 2s linear infinite;
+}
+
+@layer base {
+  body {
+    @apply bg-bg-dark text-white font-sans antialiased min-h-screen relative overflow-x-hidden;
+    background: radial-gradient(circle at 50% 50%, #0a1025 0%, #020409 100%);
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 32px 32px;
+    pointer-events: none;
+    z-index: -1;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/[0.03] backdrop-blur-[12px] border border-white/10 rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.4)];
+  }
+  
+  .neon-glow-green {
+    text-shadow: 0 0 10px #00ff88;
+  }
+  
+  .neon-border-green {
+    @apply border-primary-neon shadow-[0_0_15px_rgba(0,255,136,0.2)];
+  }
+
+  .stat-ring {
+    @apply rounded-full flex items-center justify-center border-8 border-[#111] relative;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #020409;
+}
+::-webkit-scrollbar-thumb {
+  background: #1a1a1a;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #00ff88;
+}
